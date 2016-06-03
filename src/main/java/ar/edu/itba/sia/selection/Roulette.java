@@ -4,6 +4,7 @@ import ar.edu.itba.sia.model.Chromosome;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 public class Roulette implements Selection {
 
@@ -14,12 +15,12 @@ public class Roulette implements Selection {
         List<Chromosome> selected = new LinkedList<>();
         while (k-- > 0) {
             double random = Math.random();
-            Chromosome c = population.stream()
+            accumulatedFitness = 0;
+            Optional<Chromosome> c = population.stream()
                     .peek(chrom -> accumulatedFitness += chrom.relativeFitness())
                     .filter(chrom -> accumulatedFitness >= random)
-                    .findFirst()
-                    .get();
-            selected.add(c);
+                    .findFirst();
+            if (c.isPresent()) selected.add(c.get());
         }
         return selected;
     }
