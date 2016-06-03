@@ -4,6 +4,7 @@ import ar.edu.itba.sia.model.Chromosome;
 import ar.edu.itba.sia.selection.Elitism;
 import ar.edu.itba.sia.selection.Roulette;
 import ar.edu.itba.sia.selection.Selection;
+import ar.edu.itba.sia.selection.Universal;
 import junit.framework.TestCase;
 
 import java.util.LinkedList;
@@ -49,6 +50,25 @@ public class SelectionTest extends TestCase {
 
         Selection selection = new Roulette();
         population = selection.select(3, population);
+        assertTrue(population.size() == 3);
+    }
+
+    public void testUniversal() {
+        IntegerChromosome x1 = new IntegerChromosome(3);
+        IntegerChromosome x2 = new IntegerChromosome(6);
+        IntegerChromosome x3 = new IntegerChromosome(11);
+        IntegerChromosome x4 = new IntegerChromosome(14);
+        IntegerChromosome x5 = new IntegerChromosome(1);
+        List<Chromosome> population = new LinkedList<>();
+        population.add(x1);
+        population.add(x2);
+        population.add(x3);
+        population.add(x4);
+        population.add(x5);
+
+        Selection selection = new Universal();
+        population = selection.select(3, population);
+        System.out.println(population);
         assertTrue(population.size() == 3);
     }
 
