@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class Roulette implements Selection {
 
-    double accumulatedFitness = 0;
+    private double accumulatedFitness = 0;
 
     @Override
     public List<Chromosome> select(int k, List<Chromosome> population) {

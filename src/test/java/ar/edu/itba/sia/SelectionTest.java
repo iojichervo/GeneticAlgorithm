@@ -1,10 +1,7 @@
 package ar.edu.itba.sia;
 
 import ar.edu.itba.sia.model.Chromosome;
-import ar.edu.itba.sia.selection.Elitism;
-import ar.edu.itba.sia.selection.Roulette;
-import ar.edu.itba.sia.selection.Selection;
-import ar.edu.itba.sia.selection.Universal;
+import ar.edu.itba.sia.selection.*;
 import junit.framework.TestCase;
 
 import java.util.LinkedList;
@@ -68,7 +65,24 @@ public class SelectionTest extends TestCase {
 
         Selection selection = new Universal();
         population = selection.select(3, population);
-        System.out.println(population);
+        assertTrue(population.size() == 3);
+    }
+
+    public void testRanking() {
+        IntegerChromosome x1 = new IntegerChromosome(3);
+        IntegerChromosome x2 = new IntegerChromosome(6);
+        IntegerChromosome x3 = new IntegerChromosome(11);
+        IntegerChromosome x4 = new IntegerChromosome(14);
+        IntegerChromosome x5 = new IntegerChromosome(1);
+        List<Chromosome> population = new LinkedList<>();
+        population.add(x1);
+        population.add(x2);
+        population.add(x3);
+        population.add(x4);
+        population.add(x5);
+
+        Selection selection = new Rank();
+        population = selection.select(3, population);
         assertTrue(population.size() == 3);
     }
 
@@ -76,6 +90,7 @@ public class SelectionTest extends TestCase {
 
         private static double TOTAL_FITNESS = 35.0;
         private int num;
+        private float rankingFitness;
 
         public IntegerChromosome(int num) {
             this.num = num;
@@ -88,7 +103,17 @@ public class SelectionTest extends TestCase {
 
         @Override
         public double relativeFitness() {
-            return num / TOTAL_FITNESS;
+            return rankingFitness == 0 ? num / TOTAL_FITNESS : rankingFitness;
+        }
+
+        @Override
+        public void setRankingFitness(float newFitness) {
+            rankingFitness = newFitness;
+        }
+
+        @Override
+        public void resetRankingFitness() {
+            rankingFitness = 0;
         }
 
         @Override
