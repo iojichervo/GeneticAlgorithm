@@ -90,7 +90,7 @@ public class SelectionTest extends TestCase {
 
         private static double TOTAL_FITNESS = 35.0;
         private int num;
-        private float rankingFitness;
+        private double rankingFitness;
 
         public IntegerChromosome(int num) {
             this.num = num;
@@ -107,7 +107,12 @@ public class SelectionTest extends TestCase {
         }
 
         @Override
-        public void setRankingFitness(float newFitness) {
+        public void setTotalFitness(double totalFitness) {
+            TOTAL_FITNESS = totalFitness;
+        }
+
+        @Override
+        public void setRankingFitness(double newFitness) {
             rankingFitness = newFitness;
         }
 

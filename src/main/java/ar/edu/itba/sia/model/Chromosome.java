@@ -6,7 +6,10 @@ public interface Chromosome {
 
     double relativeFitness();
 
-    void setRankingFitness(float newFitness);
+    void setTotalFitness(double totalFitness);
+
+    // Ranking selection methods
+    void setRankingFitness(double newFitness);
 
     void resetRankingFitness();
 }
