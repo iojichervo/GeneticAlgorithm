@@ -14,8 +14,8 @@ public class ProbabilisticTournament implements Selection {
             RandomSelection randomSelection = new RandomSelection();
             List<Chromosome> tournament = randomSelection.select(2, population);
 
-            Chromosome highFitness = tournament.stream().max((a, b) -> b.fitness() - a.fitness()).get();
-            Chromosome lowFitness = tournament.stream().min((a, b) -> b.fitness() - a.fitness()).get();
+            Chromosome highFitness = tournament.stream().max((a, b) ->(int) (b.fitness() - a.fitness())).get();
+            Chromosome lowFitness = tournament.stream().min((a, b) -> (int) (b.fitness() - a.fitness())).get();
 
             Chromosome champion = Math.random() < 0.75 ? highFitness : lowFitness;
             selected.add(champion);

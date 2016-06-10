@@ -17,7 +17,7 @@ public class DeterministictTournament implements Selection {
             int m = iterator.nextInt();
             RandomSelection randomSelection = new RandomSelection();
             List<Chromosome> tournament = randomSelection.select(m, population);
-            Chromosome champion = tournament.stream().max((a, b) -> b.fitness() - a.fitness()).get();
+            Chromosome champion = tournament.stream().max((a, b) -> (int) (b.fitness() - a.fitness())).get();
             selected.add(champion);
         }
         return selected;

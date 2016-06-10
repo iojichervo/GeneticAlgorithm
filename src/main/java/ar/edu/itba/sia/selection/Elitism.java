@@ -10,7 +10,7 @@ public class Elitism implements Selection {
     @Override
     public List<Chromosome> select(int amount, List<Chromosome> population) {
         if (amount < 0 || amount > population.size()) throw new IllegalArgumentException();
-        Collections.sort(population, (a, b) -> b.fitness() - a.fitness());
+        Collections.sort(population, (a, b) -> (int) (b.fitness() - a.fitness()));
         return population.subList(0, amount);
     }
 }

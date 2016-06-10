@@ -97,7 +97,7 @@ public class SelectionTest extends TestCase {
         }
 
         @Override
-        public int fitness() {
+        public double fitness() {
             return num;
         }
 
