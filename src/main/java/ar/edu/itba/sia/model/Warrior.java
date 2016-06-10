@@ -68,6 +68,10 @@ public class Warrior implements Chromosome {
         return 2 + Math.pow(3 * h - 5, 4) - Math.pow(3 * h - 5, 2) - (h / 2);
     }
 
+    public Height getHeight() {
+        return height;
+    }
+
     public Weapon getWeapon() {
         return weapon;
     }
@@ -88,8 +92,28 @@ public class Warrior implements Chromosome {
         return cuirass;
     }
 
-    public Height getHeight() {
-        return height;
+    public void setHeight(Height height) {
+        this.height = height;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public void setBoots(Boots boots) {
+        this.boots = boots;
+    }
+
+    public void setHelmet(Helmet helmet) {
+        this.helmet = helmet;
+    }
+
+    public void setGloves(Gloves gloves) {
+        this.gloves = gloves;
+    }
+
+    public void setCuirass(Cuirass cuirass) {
+        this.cuirass = cuirass;
     }
 
     @Override
