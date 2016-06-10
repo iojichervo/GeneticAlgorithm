@@ -33,6 +33,7 @@ public class OnePointCrossover extends Crossover {
                 Cuirass cuirass1 = w1.getCuirass();
                 w1.setCuirass(w2.getCuirass());
                 w2.setCuirass(cuirass1);
+                break;
             default:
                 throw new UnknownError();
         }

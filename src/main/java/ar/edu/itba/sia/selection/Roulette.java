@@ -11,12 +11,12 @@ public class Roulette implements Selection {
     private double accumulatedFitness = 0;
 
     @Override
-    public List<Chromosome> select(int k, List<Chromosome> population) {
+    public List<? extends Chromosome> select(int k, List<? extends Chromosome> population) {
         List<Chromosome> selected = new LinkedList<>();
         while (k-- > 0) {
             double random = Math.random();
             accumulatedFitness = 0;
-            Optional<Chromosome> c = population.stream()
+            Optional<Chromosome> c = (Optional<Chromosome>) population.stream()
                     .peek(chrom -> accumulatedFitness += chrom.relativeFitness())
                     .filter(chrom -> accumulatedFitness >= random)
                     .findFirst();

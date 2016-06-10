@@ -5,6 +5,10 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Height {
     private double height; // Between 1.3m and 2.0m
 
+    public Height() {
+        mutate();
+    }
+
     public Height(double height) {
         this.height = height;
     }

@@ -1,7 +1,6 @@
 package ar.edu.itba.sia.util;
 
-import ar.edu.itba.sia.model.Item;
-import ar.edu.itba.sia.model.Weapon;
+import ar.edu.itba.sia.model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,10 +13,10 @@ public class ItemsParser {
     public static void parse() throws InvocationTargetException, FileNotFoundException,
             InstantiationException, IllegalAccessException, NoSuchMethodException {
         parse("weapon.tsv", Weapon.class, ItemsManager.getWeapon());
-        parse("boots.tsv", Weapon.class, ItemsManager.getBoots());
-        parse("helmet.tsv", Weapon.class, ItemsManager.getHelmet());
-        parse("gloves.tsv", Weapon.class, ItemsManager.getGloves());
-        parse("cuirass.tsv", Weapon.class, ItemsManager.getCuirass());
+        parse("boots.tsv", Boots.class, ItemsManager.getBoots());
+        parse("helmet.tsv", Helmet.class, ItemsManager.getHelmet());
+        parse("gloves.tsv", Gloves.class, ItemsManager.getGloves());
+        parse("cuirass.tsv", Cuirass.class, ItemsManager.getCuirass());
     }
 
     public static void parse(String filename, Class<? extends Item> itemClass, Map<Integer, Item> map)

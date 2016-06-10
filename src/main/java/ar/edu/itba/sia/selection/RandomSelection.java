@@ -8,7 +8,7 @@ import java.util.List;
 public class RandomSelection implements Selection {
 
     @Override
-    public List<Chromosome> select(int amount, List<Chromosome> population) {
+    public List<? extends Chromosome> select(int amount, List<? extends Chromosome> population) {
         Collections.shuffle(population);
         return population.subList(0, amount);
     }

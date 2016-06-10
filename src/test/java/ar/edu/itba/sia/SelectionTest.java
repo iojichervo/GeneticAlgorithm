@@ -23,7 +23,7 @@ public class SelectionTest extends TestCase {
         population.add(x5);
 
         Selection selection = new Elitism();
-        population = selection.select(2, population);
+        population = (List<Chromosome>) selection.select(2, population);
         assertTrue(population.size() == 2);
         assertFalse(population.contains(x1));
         assertFalse(population.contains(x2));
@@ -46,7 +46,7 @@ public class SelectionTest extends TestCase {
         population.add(x5);
 
         Selection selection = new Roulette();
-        population = selection.select(3, population);
+        population = (List<Chromosome>) selection.select(3, population);
         assertTrue(population.size() == 3);
     }
 
@@ -64,7 +64,7 @@ public class SelectionTest extends TestCase {
         population.add(x5);
 
         Selection selection = new Universal();
-        population = selection.select(3, population);
+        population = (List<Chromosome>) selection.select(3, population);
         assertTrue(population.size() == 3);
     }
 
@@ -82,7 +82,7 @@ public class SelectionTest extends TestCase {
         population.add(x5);
 
         Selection selection = new Rank();
-        population = selection.select(3, population);
+        population = (List<Chromosome>) selection.select(3, population);
         assertTrue(population.size() == 3);
     }
 

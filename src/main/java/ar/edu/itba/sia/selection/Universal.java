@@ -11,14 +11,14 @@ public class Universal implements Selection {
     double accumulatedFitness = 0;
 
     @Override
-    public List<Chromosome> select(int k, List<Chromosome> population) {
+    public List<? extends Chromosome> select(int k, List<? extends Chromosome> population) {
         List<Chromosome> selected = new LinkedList<>();
         double r = Math.random();
         int j = 0;
         while (j++ < k) {
             double random = (r + j - 1) / k;
             accumulatedFitness = 0;
-            Optional<Chromosome> c = population.stream()
+            Optional<Chromosome> c = (Optional<Chromosome>) population.stream()
                     .peek(chrom -> accumulatedFitness += chrom.relativeFitness())
                     .filter(chrom -> accumulatedFitness >= random)
                     .findFirst();

@@ -8,11 +8,11 @@ import java.util.List;
 public class ProbabilisticTournament implements Selection {
 
     @Override
-    public List<Chromosome> select(int k, List<Chromosome> population) {
+    public List<? extends Chromosome> select(int k, List<? extends Chromosome> population) {
         List<Chromosome> selected = new LinkedList<>();
         while (k-- > 0) {
             RandomSelection randomSelection = new RandomSelection();
-            List<Chromosome> tournament = randomSelection.select(2, population);
+            List<Chromosome> tournament = (List<Chromosome>) randomSelection.select(2, population);
 
             Chromosome highFitness = tournament.stream().max((a, b) ->(int) (b.fitness() - a.fitness())).get();
             Chromosome lowFitness = tournament.stream().min((a, b) -> (int) (b.fitness() - a.fitness())).get();

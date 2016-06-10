@@ -2,18 +2,29 @@ package ar.edu.itba.sia.model;
 
 public class Warrior implements Chromosome {
 
+    // Constants
     private static final double STRENGTH_MODIFIER = 1.2;
     private static final double AGILITY_MODIFIER = 0.6;
     private static final double EXPERTISE_MODIFIER = 0.3;
     private static final double RESISTENCE_MODIFIER = 1.0;
     private static final double LIFE_MODIFIER = 0.9;
 
+    // Equipment
     private Height height;
     private Weapon weapon;
     private Boots boots;
     private Helmet helmet;
     private Gloves gloves;
     private Cuirass cuirass;
+
+    public Warrior(Height height, Weapon weapon, Boots boots, Helmet helmet, Gloves gloves, Cuirass cuirass) {
+        this.height = height;
+        this.weapon = weapon;
+        this.boots = boots;
+        this.helmet = helmet;
+        this.gloves = gloves;
+        this.cuirass = cuirass;
+    }
 
     @Override
     public double fitness() {
@@ -55,7 +66,7 @@ public class Warrior implements Chromosome {
     private double life() {
         double lifeItems = weapon.getLife() + boots.getLife() + helmet.getLife()
                 + gloves.getLife() + cuirass.getLife();
-        return 100 * Math.tanh(0.01 * lifeItems * LIFE_MODIFIER );
+        return 100 * Math.tanh(0.01 * lifeItems * LIFE_MODIFIER);
     }
 
     private double attackModifier() {
@@ -114,6 +125,10 @@ public class Warrior implements Chromosome {
 
     public void setCuirass(Cuirass cuirass) {
         this.cuirass = cuirass;
+    }
+
+    public Warrior duplicate() {
+        return new Warrior(height, weapon, boots, helmet, gloves, cuirass);
     }
 
     @Override

@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Selection {
 
-    List<Chromosome> select(int amount, List<Chromosome> population);
+    List<? extends Chromosome> select(int amount, List<? extends Chromosome> population);
 }

@@ -10,7 +10,7 @@ public class Rank implements Selection {
     private int i;
 
     @Override
-    public List<Chromosome> select(int amount, List<Chromosome> population) {
+    public List<? extends Chromosome> select(int amount, List<? extends Chromosome> population) {
         if (amount < 0 || amount > population.size()) throw new IllegalArgumentException();
         Collections.sort(population, (a, b) -> (int) (a.fitness() - b.fitness())); // Order by fitness, worst to best
 
@@ -19,7 +19,7 @@ public class Rank implements Selection {
         population.stream().forEach(c -> c.setRankingFitness(i++ / populationSize)); // Assign new fitness
 
         Roulette roulette = new Roulette();
-        List<Chromosome> result = roulette.select(amount, population);
+        List<Chromosome> result = (List<Chromosome>) roulette.select(amount, population);
         result.stream().forEach(c -> c.resetRankingFitness());
         return result;
     }
