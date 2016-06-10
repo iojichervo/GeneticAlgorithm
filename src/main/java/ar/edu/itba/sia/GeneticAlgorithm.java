@@ -1,12 +1,5 @@
 package ar.edu.itba.sia;
 
-import ar.edu.itba.sia.model.Chromosome;
-import ar.edu.itba.sia.selection.Selection;
-import ar.edu.itba.sia.selection.Universal;
-
-import java.util.LinkedList;
-import java.util.List;
-
 public class GeneticAlgorithm {
 
     public static void run() {

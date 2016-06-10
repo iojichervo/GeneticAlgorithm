@@ -8,6 +8,15 @@ public abstract class Item {
     private double resistence;
     private double life;
 
+    public Item(Integer id, Double strength, Double agility, Double expertise, Double resistence, Double life) {
+        this.id = id;
+        this.strength = strength;
+        this.agility = agility;
+        this.expertise = expertise;
+        this.resistence = resistence;
+        this.life = life;
+    }
+
     public double getStrength() {
         return strength;
     }
@@ -46,6 +55,18 @@ public abstract class Item {
 
     public void setResistence(double resistence) {
         this.resistence = resistence;
+    }
+
+    @Override
+    public String toString() {
+        return getClass() + "{" +
+                "id=" + id +
+                ", strength=" + strength +
+                ", agility=" + agility +
+                ", expertise=" + expertise +
+                ", resistence=" + resistence +
+                ", life=" + life +
+                '}';
     }
 
     public void mutate() {
