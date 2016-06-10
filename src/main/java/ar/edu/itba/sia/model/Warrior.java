@@ -8,7 +8,7 @@ public class Warrior implements Chromosome {
     private static final double RESISTENCE_MODIFIER = 1.0;
     private static final double LIFE_MODIFIER = 0.9;
 
-    private double height; // Between 1.3m and 2.0m
+    private Height height;
     private Weapon weapon;
     private Boots boots;
     private Helmet helmet;
@@ -55,15 +55,41 @@ public class Warrior implements Chromosome {
     private double life() {
         double lifeItems = weapon.getLife() + boots.getLife() + helmet.getLife()
                 + gloves.getLife() + cuirass.getLife();
-        return 100 * Math.tanh(0.01 * lifeItems * LIFE_MODIFIER);
+        return 100 * Math.tanh(0.01 * lifeItems * LIFE_MODIFIER );
     }
 
     private double attackModifier() {
-        return 0.5 - Math.pow(3 * height - 5, 4) + Math.pow(3 * height - 5, 2) + (height / 2);
+        double h = height.getHeight();
+        return 0.5 - Math.pow(3 * h - 5, 4) + Math.pow(3 * h - 5, 2) + (h / 2);
     }
 
     private double defenseModifier() {
-        return 2 + Math.pow(3 * height - 5, 4) - Math.pow(3 * height - 5, 2) - (height / 2);
+        double h = height.getHeight();
+        return 2 + Math.pow(3 * h - 5, 4) - Math.pow(3 * h - 5, 2) - (h / 2);
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public Boots getBoots() {
+        return boots;
+    }
+
+    public Helmet getHelmet() {
+        return helmet;
+    }
+
+    public Gloves getGloves() {
+        return gloves;
+    }
+
+    public Cuirass getCuirass() {
+        return cuirass;
+    }
+
+    public Height getHeight() {
+        return height;
     }
 
     @Override

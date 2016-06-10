@@ -1,6 +1,7 @@
 package ar.edu.itba.sia.model;
 
 public abstract class Item {
+    private int id;
     private double strength;
     private double agility;
     private double expertise;
@@ -45,5 +46,9 @@ public abstract class Item {
 
     public void setResistence(double resistence) {
         this.resistence = resistence;
+    }
+
+    public void mutate() {
+        id = (id + 1) % 200;
     }
 }
