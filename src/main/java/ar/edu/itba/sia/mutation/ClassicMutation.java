@@ -1,6 +1,7 @@
 package ar.edu.itba.sia.mutation;
 
 import ar.edu.itba.sia.model.Warrior;
+import ar.edu.itba.sia.util.ItemsManager;
 
 import java.util.Random;
 
@@ -19,19 +20,19 @@ public class ClassicMutation extends Mutation {
                     warrior.getHeight().mutate();
                     break;
                 case 1:
-                    warrior.getWeapon().mutate();
+                    warrior.setWeapon(ItemsManager.randomWeapon());
                     break;
                 case 2:
-                    warrior.getBoots().mutate();
+                    warrior.setBoots(ItemsManager.randomBoots());
                     break;
                 case 3:
-                    warrior.getHelmet().mutate();
+                    warrior.setHelmet(ItemsManager.randomHelmet());
                     break;
                 case 4:
-                    warrior.getGloves().mutate();
+                    warrior.setGloves(ItemsManager.randomGloves());
                     break;
                 case 5:
-                    warrior.getCuirass().mutate();
+                    warrior.setCuirass(ItemsManager.randomCuirass());
                     break;
                 default:
                     throw new UnknownError();

@@ -21,40 +21,20 @@ public abstract class Item {
         return strength;
     }
 
-    public void setStrength(double strength) {
-        this.strength = strength;
-    }
-
     public double getAgility() {
         return agility;
-    }
-
-    public void setAgility(double agility) {
-        this.agility = agility;
     }
 
     public double getLife() {
         return life;
     }
 
-    public void setLife(double life) {
-        this.life = life;
-    }
-
     public double getExpertise() {
         return expertise;
     }
 
-    public void setExpertise(double expertise) {
-        this.expertise = expertise;
-    }
-
     public double getResistence() {
         return resistence;
-    }
-
-    public void setResistence(double resistence) {
-        this.resistence = resistence;
     }
 
     @Override
@@ -69,7 +49,4 @@ public abstract class Item {
                 '}';
     }
 
-    public void mutate() {
-        id = (id + 1) % 200;
-    }
 }

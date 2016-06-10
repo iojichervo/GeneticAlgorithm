@@ -1,6 +1,7 @@
 package ar.edu.itba.sia.mutation;
 
 import ar.edu.itba.sia.model.Warrior;
+import ar.edu.itba.sia.util.ItemsManager;
 
 public class NonUniformMutation extends Mutation {
 
@@ -15,23 +16,23 @@ public class NonUniformMutation extends Mutation {
         }
 
         if (Math.random() > mutationProbability) {
-            warrior.getWeapon().mutate();
+            warrior.setWeapon(ItemsManager.randomWeapon());
         }
 
         if (Math.random() > mutationProbability) {
-            warrior.getBoots().mutate();
+            warrior.setBoots(ItemsManager.randomBoots());
         }
 
         if (Math.random() > mutationProbability) {
-            warrior.getHelmet().mutate();
+            warrior.setHelmet(ItemsManager.randomHelmet());
         }
 
         if (Math.random() > mutationProbability) {
-            warrior.getGloves().mutate();
+            warrior.setGloves(ItemsManager.randomGloves());
         }
 
         if (Math.random() > mutationProbability) {
-            warrior.getCuirass().mutate();
+            warrior.setCuirass(ItemsManager.randomCuirass());
         }
     }
 }

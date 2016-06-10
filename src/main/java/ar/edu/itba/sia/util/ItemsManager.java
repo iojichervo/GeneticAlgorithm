@@ -4,8 +4,10 @@ import ar.edu.itba.sia.model.*;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
-public class ItemsStorage {
+public class ItemsManager {
+    private static final int ITEMS_AMOUNT = 200;
     private static Map<Integer, Item> weapon = new HashMap<>();
     private static Map<Integer, Item> boots = new HashMap<>();
     private static Map<Integer, Item> helmet = new HashMap<>();
@@ -30,5 +32,25 @@ public class ItemsStorage {
 
     public static Map<Integer, Item> getCuirass() {
         return cuirass;
+    }
+
+    public static Weapon randomWeapon() {
+        return (Weapon) weapon.get(new Random().nextInt(ITEMS_AMOUNT));
+    }
+
+    public static Boots randomBoots() {
+        return (Boots) boots.get(new Random().nextInt(ITEMS_AMOUNT));
+    }
+
+    public static Helmet randomHelmet() {
+        return (Helmet) helmet.get(new Random().nextInt(ITEMS_AMOUNT));
+    }
+
+    public static Gloves randomGloves() {
+        return (Gloves) gloves.get(new Random().nextInt(ITEMS_AMOUNT));
+    }
+
+    public static Cuirass randomCuirass() {
+        return (Cuirass) cuirass.get(new Random().nextInt(ITEMS_AMOUNT));
     }
 }

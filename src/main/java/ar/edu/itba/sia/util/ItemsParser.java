@@ -13,11 +13,11 @@ public class ItemsParser {
 
     public static void parse() throws InvocationTargetException, FileNotFoundException,
             InstantiationException, IllegalAccessException, NoSuchMethodException {
-        parse("weapon.tsv", Weapon.class, ItemsStorage.getWeapon());
-        parse("boots.tsv", Weapon.class, ItemsStorage.getBoots());
-        parse("helmet.tsv", Weapon.class, ItemsStorage.getHelmet());
-        parse("gloves.tsv", Weapon.class, ItemsStorage.getGloves());
-        parse("cuirass.tsv", Weapon.class, ItemsStorage.getCuirass());
+        parse("weapon.tsv", Weapon.class, ItemsManager.getWeapon());
+        parse("boots.tsv", Weapon.class, ItemsManager.getBoots());
+        parse("helmet.tsv", Weapon.class, ItemsManager.getHelmet());
+        parse("gloves.tsv", Weapon.class, ItemsManager.getGloves());
+        parse("cuirass.tsv", Weapon.class, ItemsManager.getCuirass());
     }
 
     public static void parse(String filename, Class<? extends Item> itemClass, Map<Integer, Item> map)
