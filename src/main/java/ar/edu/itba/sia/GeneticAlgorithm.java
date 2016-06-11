@@ -1,11 +1,11 @@
 package ar.edu.itba.sia;
 
-import ar.edu.itba.sia.crossover.Crossover;
-import ar.edu.itba.sia.crossover.OnePointCrossover;
+import ar.edu.itba.sia.crossover.*;
 import ar.edu.itba.sia.generator.WarriorsGenerator;
 import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.mutation.ClassicMutation;
 import ar.edu.itba.sia.mutation.Mutation;
+import ar.edu.itba.sia.mutation.NonUniformMutation;
 import ar.edu.itba.sia.selection.Elitism;
 import ar.edu.itba.sia.selection.Selection;
 
@@ -30,11 +30,11 @@ public class GeneticAlgorithm {
             List<Warrior> parents = selection.select(50, warriors);
 
             //Crossover
-            Crossover crossover = new OnePointCrossover(0.8);
+            Crossover crossover = new AnnularCrossover(0.8);
             List<Warrior> children = crossover.cross(parents);
 
             //Mutation
-            Mutation mutation = new ClassicMutation(0.005);
+            Mutation mutation = new NonUniformMutation(0.005);
             children.stream().forEach(c -> mutation.mutate(c));
 
             //Replacement

@@ -1,5 +1,6 @@
 package ar.edu.itba.sia;
 
+import ar.edu.itba.sia.crossover.AnnularCrossover;
 import ar.edu.itba.sia.crossover.Crossover;
 import ar.edu.itba.sia.crossover.OnePointCrossover;
 import ar.edu.itba.sia.crossover.TwoPointsCrossover;
@@ -47,6 +48,20 @@ public class CrossoverTest extends TestCase {
     public void testTwoPointsCrossover() {
         init();
         Crossover crossover = new TwoPointsCrossover(0);
+        List<Warrior> children = crossover.cross(parents);
+        assertTrue(children.containsAll(parents));
+
+        crossover = new TwoPointsCrossover(1);
+        children = crossover.cross(parents);
+        assertFalse(children.containsAll(parents));
+        System.out.println(parents);
+        System.out.println();
+        System.out.println(children);
+    }
+
+    public void testAnnularCrossover() {
+        init();
+        Crossover crossover = new AnnularCrossover(0);
         List<Warrior> children = crossover.cross(parents);
         assertTrue(children.containsAll(parents));
 
