@@ -12,7 +12,7 @@ public class Rank implements Selection {
     @Override
     public List<Warrior> select(int amount, List<Warrior> population) {
         if (amount < 0 || amount > population.size()) throw new IllegalArgumentException();
-        Collections.sort(population, (a, b) -> (int) (a.fitness() - b.fitness())); // Order by fitness, worst to best
+        Collections.sort(population, (a, b) -> Double.compare(a.fitness(), b.fitness())); // Order by fitness, worst to best
 
         i = 1;
         float populationSize = population.size();

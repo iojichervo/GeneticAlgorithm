@@ -1,0 +1,2 @@
+The best warriors obtained until now:
+16.206027892163938 - Warrior{height=1.9206807951131903, weapon=162, boots=155, helmet=101, gloves=170, cuirass=190}

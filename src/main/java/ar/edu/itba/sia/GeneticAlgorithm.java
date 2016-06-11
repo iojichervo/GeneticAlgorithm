@@ -6,6 +6,7 @@ import ar.edu.itba.sia.generator.WarriorsGenerator;
 import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.mutation.ClassicMutation;
 import ar.edu.itba.sia.mutation.Mutation;
+import ar.edu.itba.sia.selection.Elitism;
 import ar.edu.itba.sia.selection.ProbabilisticTournament;
 import ar.edu.itba.sia.selection.Selection;
 
@@ -26,7 +27,7 @@ public class GeneticAlgorithm {
         int i = 0;
         while (i++ < 30) { //TODO implement a better break condition
             //Selection
-            Selection selection = new ProbabilisticTournament();
+            Selection selection = new Elitism();
             List<Warrior> selected = selection.select(10, warriors);
 
             //Crossover
@@ -44,11 +45,14 @@ public class GeneticAlgorithm {
             warriors.add(son1);
             warriors.add(son2);
             Collections.shuffle(warriors);
-            warriors = (List<Warrior>) selection.select(30, warriors);
+            warriors = selection.select(30, warriors);
         }
 
-        for (Warrior warrior : warriors) System.out.println(warrior.fitness());
+        for (Warrior warrior : warriors) {
+            System.out.println(warrior.fitness() + " - " + warrior);
+        }
         System.out.println();
+
     }
 
 }
