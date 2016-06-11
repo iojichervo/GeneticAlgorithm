@@ -13,7 +13,7 @@ public class ClassicMutation extends Mutation {
 
     @Override
     public void mutate(Warrior warrior) {
-        if (Math.random() > mutationProbability) {
+        if (Math.random() < mutationProbability) {
             Random r = new Random();
             switch (r.nextInt(6)) {
                 case 0:

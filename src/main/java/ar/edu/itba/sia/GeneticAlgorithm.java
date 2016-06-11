@@ -7,7 +7,6 @@ import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.mutation.ClassicMutation;
 import ar.edu.itba.sia.mutation.Mutation;
 import ar.edu.itba.sia.selection.Elitism;
-import ar.edu.itba.sia.selection.ProbabilisticTournament;
 import ar.edu.itba.sia.selection.Selection;
 
 import java.util.Collections;
@@ -17,7 +16,7 @@ public class GeneticAlgorithm {
 
     public static void run() {
         // Initial Population
-        List<Warrior> warriors = WarriorsGenerator.generateWarriors(30);
+        List<Warrior> warriors = WarriorsGenerator.generateWarriors(100);
 
         for (Warrior warrior : warriors) {
             System.out.println(warrior.fitness() + " - " + warrior);
@@ -25,27 +24,23 @@ public class GeneticAlgorithm {
         System.out.println();
 
         int i = 0;
-        while (i++ < 30) { //TODO implement a better break condition
+        while (i++ < 100) { //TODO implement a better break condition
             //Selection
             Selection selection = new Elitism();
-            List<Warrior> selected = selection.select(10, warriors);
+            List<Warrior> parents = selection.select(50, warriors);
 
             //Crossover
-            Crossover crossover = new OnePointCrossover();
-            Warrior son1 = selected.get(0).duplicate();
-            Warrior son2 = selected.get(1).duplicate();
-            crossover.cross(son1, son2);
+            Crossover crossover = new OnePointCrossover(0.8);
+            List<Warrior> children = crossover.cross(parents);
 
             //Mutation
-            Mutation mutation = new ClassicMutation(0.03);
-            mutation.mutate(son1);
-            mutation.mutate(son2);
+            Mutation mutation = new ClassicMutation(0.005);
+            children.stream().forEach(c -> mutation.mutate(c));
 
             //Replacement
-            warriors.add(son1);
-            warriors.add(son2);
+            warriors.addAll(children);
             Collections.shuffle(warriors);
-            warriors = selection.select(30, warriors);
+            warriors = selection.select(100, warriors);
         }
 
         for (Warrior warrior : warriors) {
