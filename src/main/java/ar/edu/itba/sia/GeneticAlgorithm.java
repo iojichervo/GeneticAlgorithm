@@ -18,7 +18,9 @@ public class GeneticAlgorithm {
         // Initial Population
         List<Warrior> warriors = WarriorsGenerator.generateWarriors(30);
 
-        for (Warrior warrior : warriors) System.out.println(warrior.fitness());
+        for (Warrior warrior : warriors) {
+            System.out.println(warrior.fitness() + " - " + warrior);
+        }
         System.out.println();
 
         int i = 0;

@@ -53,4 +53,24 @@ public class ItemsManager {
     public static Cuirass randomCuirass() {
         return (Cuirass) cuirass.get(new Random().nextInt(ITEMS_AMOUNT));
     }
+
+    public static Weapon getWeapon(int i) {
+        return (Weapon) weapon.get(i);
+    }
+
+    public static Boots getBoots(int i) {
+        return (Boots) boots.get(i);
+    }
+
+    public static Helmet getHelmet(int i) {
+        return (Helmet) helmet.get(i);
+    }
+
+    public static Gloves getGloves(int i) {
+        return (Gloves) gloves.get(i);
+    }
+
+    public static Cuirass getCuirass(int i) {
+        return (Cuirass) cuirass.get(i);
+    }
 }

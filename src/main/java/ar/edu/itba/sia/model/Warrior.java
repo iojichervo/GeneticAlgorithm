@@ -145,4 +145,42 @@ public class Warrior {
     public void resetRankingFitness() {
 
     }
+
+    @Override
+    public String toString() {
+        return "Warrior{" +
+                "height=" + height +
+                ", weapon=" + weapon.getId() +
+                ", boots=" + boots.getId() +
+                ", helmet=" + helmet.getId() +
+                ", gloves=" + gloves.getId() +
+                ", cuirass=" + cuirass.getId() +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Warrior warrior = (Warrior) o;
+
+        if (!height.equals(warrior.height)) return false;
+        if (!weapon.equals(warrior.weapon)) return false;
+        if (!boots.equals(warrior.boots)) return false;
+        if (!helmet.equals(warrior.helmet)) return false;
+        if (!gloves.equals(warrior.gloves)) return false;
+        return cuirass.equals(warrior.cuirass);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = height.hashCode();
+        result = 31 * result + weapon.hashCode();
+        result = 31 * result + boots.hashCode();
+        result = 31 * result + helmet.hashCode();
+        result = 31 * result + gloves.hashCode();
+        result = 31 * result + cuirass.hashCode();
+        return result;
+    }
 }
