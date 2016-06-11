@@ -1,6 +1,6 @@
 package ar.edu.itba.sia.model;
 
-public class Warrior implements Chromosome {
+public class Warrior {
 
     // Constants
     private static final double STRENGTH_MODIFIER = 1.2;
@@ -26,7 +26,6 @@ public class Warrior implements Chromosome {
         this.cuirass = cuirass;
     }
 
-    @Override
     public double fitness() {
         return 0.6 * attack() + 0.4 * defense();
     }
@@ -131,22 +130,18 @@ public class Warrior implements Chromosome {
         return new Warrior(height, weapon, boots, helmet, gloves, cuirass);
     }
 
-    @Override
     public double relativeFitness() {
         return 0;
     }
 
-    @Override
     public void setTotalFitness(double totalFitness) {
 
     }
 
-    @Override
     public void setRankingFitness(double newFitness) {
 
     }
 
-    @Override
     public void resetRankingFitness() {
 
     }

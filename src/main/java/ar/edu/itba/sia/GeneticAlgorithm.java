@@ -3,7 +3,6 @@ package ar.edu.itba.sia;
 import ar.edu.itba.sia.crossover.Crossover;
 import ar.edu.itba.sia.crossover.OnePointCrossover;
 import ar.edu.itba.sia.generator.WarriorsGenerator;
-import ar.edu.itba.sia.model.Chromosome;
 import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.mutation.ClassicMutation;
 import ar.edu.itba.sia.mutation.Mutation;
@@ -26,12 +25,12 @@ public class GeneticAlgorithm {
         while (i++ < 30) { //TODO implement a better break condition
             //Selection
             Selection selection = new ProbabilisticTournament();
-            List<? extends Chromosome> selected = selection.select(10, warriors);
+            List<Warrior> selected = selection.select(10, warriors);
 
             //Crossover
             Crossover crossover = new OnePointCrossover();
-            Warrior son1 = ((Warrior) selected.get(0)).duplicate();
-            Warrior son2 = ((Warrior) selected.get(1)).duplicate();
+            Warrior son1 = selected.get(0).duplicate();
+            Warrior son2 = selected.get(1).duplicate();
             crossover.cross(son1, son2);
 
             //Mutation
