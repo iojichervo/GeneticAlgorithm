@@ -32,7 +32,7 @@ public class AnnularCrossover extends Crossover {
                 Random random = new Random();
                 int r = random.nextInt(6);
                 switchAlleles(child1, child2, r);
-                int l = random.nextInt(ALLELES_NUMBER / 2);
+                int l = random.nextInt(ALLELES_NUMBER / 2) + 1;
                 while (l-- > 0) switchAlleles(child1, child2, ++r % ALLELES_NUMBER);
             }
             children.add(child1);

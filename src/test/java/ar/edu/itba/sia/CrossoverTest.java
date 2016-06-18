@@ -1,9 +1,6 @@
 package ar.edu.itba.sia;
 
-import ar.edu.itba.sia.crossover.AnnularCrossover;
-import ar.edu.itba.sia.crossover.Crossover;
-import ar.edu.itba.sia.crossover.OnePointCrossover;
-import ar.edu.itba.sia.crossover.TwoPointsCrossover;
+import ar.edu.itba.sia.crossover.*;
 import ar.edu.itba.sia.model.Height;
 import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.util.ItemsManager;
@@ -42,7 +39,11 @@ public class CrossoverTest extends TestCase {
 
         crossover = new OnePointCrossover(1);
         children = crossover.cross(parents);
-        assertFalse(children.containsAll(parents));
+        System.out.println(parents);
+        System.out.println();
+        System.out.println(children);
+        assertFalse(children.contains(x1));
+        assertFalse(children.contains(x2));
     }
 
     public void testTwoPointsCrossover() {
@@ -53,10 +54,11 @@ public class CrossoverTest extends TestCase {
 
         crossover = new TwoPointsCrossover(1);
         children = crossover.cross(parents);
-        assertFalse(children.containsAll(parents));
         System.out.println(parents);
         System.out.println();
         System.out.println(children);
+        assertFalse(children.contains(x1));
+        assertFalse(children.contains(x2));
     }
 
     public void testAnnularCrossover() {
@@ -67,7 +69,21 @@ public class CrossoverTest extends TestCase {
 
         crossover = new TwoPointsCrossover(1);
         children = crossover.cross(parents);
-        assertFalse(children.containsAll(parents));
+        System.out.println(parents);
+        System.out.println();
+        System.out.println(children);
+        assertFalse(children.contains(x1));
+        assertFalse(children.contains(x2));
+    }
+
+    public void testUniformCrossover() {
+        init();
+        Crossover crossover = new UniformCrossover(0);
+        List<Warrior> children = crossover.cross(parents);
+        assertTrue(children.containsAll(parents));
+
+        crossover = new TwoPointsCrossover(1);
+        children = crossover.cross(parents);
         System.out.println(parents);
         System.out.println();
         System.out.println(children);

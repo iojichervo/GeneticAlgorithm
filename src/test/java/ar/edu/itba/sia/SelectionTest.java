@@ -3,6 +3,7 @@ package ar.edu.itba.sia;
 import ar.edu.itba.sia.model.Height;
 import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.selection.Elitism;
+import ar.edu.itba.sia.selection.Roulette;
 import ar.edu.itba.sia.selection.Selection;
 import ar.edu.itba.sia.util.ItemsManager;
 import ar.edu.itba.sia.util.ItemsParser;
@@ -54,5 +55,14 @@ public class SelectionTest extends TestCase {
         assertTrue(population.contains(x3));
         assertFalse(population.contains(x4));
         assertFalse(population.contains(x5));
+    }
+
+    //TODO
+    public void testRoulette() {
+        init();
+        Selection selection = new Roulette();
+        population = selection.select(2, population);
+        //assertTrue(population.size() == 2);
+        System.out.println(population);
     }
 }

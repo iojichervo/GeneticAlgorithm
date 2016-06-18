@@ -15,11 +15,14 @@ public class Roulette implements Selection {
         List<Warrior> selected = new LinkedList<>();
         while (k-- > 0) {
             double random = Math.random();
+            System.out.println(random);
             accumulatedFitness = 0;
             Optional<Warrior> c = population.stream()
                     .peek(chrom -> accumulatedFitness += chrom.relativeFitness())
                     .filter(chrom -> accumulatedFitness >= random)
                     .findFirst();
+            System.out.println(accumulatedFitness);
+
             if (c.isPresent()) selected.add(c.get());
         }
         return selected;
