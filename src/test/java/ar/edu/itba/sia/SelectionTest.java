@@ -5,6 +5,7 @@ import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.selection.Elitism;
 import ar.edu.itba.sia.selection.Roulette;
 import ar.edu.itba.sia.selection.Selection;
+import ar.edu.itba.sia.util.FitnessCalculator;
 import ar.edu.itba.sia.util.ItemsManager;
 import ar.edu.itba.sia.util.ItemsParser;
 import junit.framework.TestCase;
@@ -40,6 +41,7 @@ public class SelectionTest extends TestCase {
             population.add(x3);
             population.add(x4);
             population.add(x5);
+            FitnessCalculator.calculateTotalFitness(population);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,12 +59,11 @@ public class SelectionTest extends TestCase {
         assertFalse(population.contains(x5));
     }
 
-    //TODO
     public void testRoulette() {
         init();
         Selection selection = new Roulette();
         population = selection.select(2, population);
-        //assertTrue(population.size() == 2);
+        assertTrue(population.size() == 2);
         System.out.println(population);
     }
 }

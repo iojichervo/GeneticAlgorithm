@@ -9,6 +9,8 @@ public class Warrior {
     private static final double RESISTENCE_MODIFIER = 1.0;
     private static final double LIFE_MODIFIER = 0.9;
 
+    private static double TOTAL_FITNESS;
+
     // Equipment
     private Height height;
     private Weapon weapon;
@@ -78,6 +80,10 @@ public class Warrior {
         return 2 + Math.pow(3 * h - 5, 4) - Math.pow(3 * h - 5, 2) - (h / 2);
     }
 
+    public Warrior duplicate() {
+        return new Warrior(height, weapon, boots, helmet, gloves, cuirass);
+    }
+
     public Height getHeight() {
         return height;
     }
@@ -126,16 +132,12 @@ public class Warrior {
         this.cuirass = cuirass;
     }
 
-    public Warrior duplicate() {
-        return new Warrior(height, weapon, boots, helmet, gloves, cuirass);
+    public static void setTotalFitness(double fit) {
+        TOTAL_FITNESS = fit;
     }
 
     public double relativeFitness() {
-        return 0;
-    }
-
-    public void setTotalFitness(double totalFitness) {
-
+        return fitness() / TOTAL_FITNESS;
     }
 
     public void setRankingFitness(double newFitness) {
