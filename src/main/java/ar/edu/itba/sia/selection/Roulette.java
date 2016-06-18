@@ -20,7 +20,6 @@ public class Roulette implements Selection {
                     .peek(chrom -> accumulatedFitness += chrom.relativeFitness())
                     .filter(chrom -> accumulatedFitness >= random)
                     .findFirst();
-
             if (c.isPresent()) selected.add(c.get());
         }
         return selected;

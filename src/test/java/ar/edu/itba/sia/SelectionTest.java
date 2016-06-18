@@ -2,9 +2,7 @@ package ar.edu.itba.sia;
 
 import ar.edu.itba.sia.model.Height;
 import ar.edu.itba.sia.model.Warrior;
-import ar.edu.itba.sia.selection.Elitism;
-import ar.edu.itba.sia.selection.Roulette;
-import ar.edu.itba.sia.selection.Selection;
+import ar.edu.itba.sia.selection.*;
 import ar.edu.itba.sia.util.FitnessCalculator;
 import ar.edu.itba.sia.util.ItemsManager;
 import ar.edu.itba.sia.util.ItemsParser;
@@ -65,5 +63,37 @@ public class SelectionTest extends TestCase {
         population = selection.select(2, population);
         assertTrue(population.size() == 2);
         System.out.println(population);
+    }
+
+    public void testUniversal() {
+        init();
+        Selection selection = new Universal();
+        population = selection.select(2, population);
+        assertTrue(population.size() == 2);
+        System.out.println(population);
+    }
+
+    public void testDeterministicTournament() {
+        init();
+        Selection selection = new DeterministicTournament();
+        population = selection.select(2, population);
+        assertTrue(population.size() == 2);
+        System.out.println(population);
+    }
+
+    public void testProbabilisticTournament() {
+        init();
+        Selection selection = new ProbabilisticTournament();
+        population = selection.select(2, population);
+        assertTrue(population.size() == 2);
+        System.out.println(population);
+    }
+
+    public void testRank() {
+        init();
+        Selection selection = new Rank();
+        population = selection.select(2, population);
+        System.out.println(population);
+        assertTrue(population.size() == 2);
     }
 }

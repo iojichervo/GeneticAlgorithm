@@ -9,7 +9,9 @@ public class Warrior {
     private static final double RESISTENCE_MODIFIER = 1.0;
     private static final double LIFE_MODIFIER = 0.9;
 
+    // Fitness
     private static double TOTAL_FITNESS;
+    private double rankFitness;
 
     // Equipment
     private Height height;
@@ -137,15 +139,16 @@ public class Warrior {
     }
 
     public double relativeFitness() {
+        if (rankFitness != 0) return rankFitness;
         return fitness() / TOTAL_FITNESS;
     }
 
     public void setRankingFitness(double newFitness) {
-
+        rankFitness = newFitness;
     }
 
     public void resetRankingFitness() {
-
+        rankFitness = 0;
     }
 
     @Override
