@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class ClassicMutation extends Mutation {
 
-    public ClassicMutation(double mutationProbability) {
+    public ClassicMutation(Double mutationProbability) {
         super(mutationProbability);
     }
 

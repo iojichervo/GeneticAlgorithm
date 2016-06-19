@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class OnePointCrossover extends Crossover {
 
-    public OnePointCrossover(double crossoverProbability) {
+    public OnePointCrossover(Double crossoverProbability) {
         super(crossoverProbability);
     }
 

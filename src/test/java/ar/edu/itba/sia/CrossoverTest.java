@@ -33,11 +33,11 @@ public class CrossoverTest extends TestCase {
 
     public void testOnePointCrossover() {
         init();
-        Crossover crossover = new OnePointCrossover(0);
+        Crossover crossover = new OnePointCrossover(0.0);
         List<Warrior> children = crossover.cross(parents);
         assertTrue(children.containsAll(parents));
 
-        crossover = new OnePointCrossover(1);
+        crossover = new OnePointCrossover(1.0);
         children = crossover.cross(parents);
         System.out.println(parents);
         System.out.println();
@@ -48,11 +48,11 @@ public class CrossoverTest extends TestCase {
 
     public void testTwoPointsCrossover() {
         init();
-        Crossover crossover = new TwoPointsCrossover(0);
+        Crossover crossover = new TwoPointsCrossover(0.0);
         List<Warrior> children = crossover.cross(parents);
         assertTrue(children.containsAll(parents));
 
-        crossover = new TwoPointsCrossover(1);
+        crossover = new TwoPointsCrossover(1.0);
         children = crossover.cross(parents);
         System.out.println(parents);
         System.out.println();
@@ -63,11 +63,11 @@ public class CrossoverTest extends TestCase {
 
     public void testAnnularCrossover() {
         init();
-        Crossover crossover = new AnnularCrossover(0);
+        Crossover crossover = new AnnularCrossover(0.0);
         List<Warrior> children = crossover.cross(parents);
         assertTrue(children.containsAll(parents));
 
-        crossover = new TwoPointsCrossover(1);
+        crossover = new TwoPointsCrossover(1.0);
         children = crossover.cross(parents);
         System.out.println(parents);
         System.out.println();
@@ -78,11 +78,11 @@ public class CrossoverTest extends TestCase {
 
     public void testUniformCrossover() {
         init();
-        Crossover crossover = new UniformCrossover(0);
+        Crossover crossover = new UniformCrossover(0.0);
         List<Warrior> children = crossover.cross(parents);
         assertTrue(children.containsAll(parents));
 
-        crossover = new TwoPointsCrossover(1);
+        crossover = new TwoPointsCrossover(1.0);
         children = crossover.cross(parents);
         System.out.println(parents);
         System.out.println();

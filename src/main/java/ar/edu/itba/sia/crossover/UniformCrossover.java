@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class UniformCrossover extends Crossover {
 
-    public UniformCrossover(double crossoverProbability) {
+    public UniformCrossover(Double crossoverProbability) {
         super(crossoverProbability);
     }
 

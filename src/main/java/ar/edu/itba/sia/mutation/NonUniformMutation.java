@@ -5,7 +5,7 @@ import ar.edu.itba.sia.util.ItemsManager;
 
 public class NonUniformMutation extends Mutation {
 
-    public NonUniformMutation(double mutationProbability) {
+    public NonUniformMutation(Double mutationProbability) {
         super(mutationProbability);
     }
 

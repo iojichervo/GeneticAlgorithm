@@ -11,7 +11,7 @@ public class AnnularCrossover extends Crossover {
 
     private static final int ALLELES_NUMBER = 6;
 
-    public AnnularCrossover(double crossoverProbability) {
+    public AnnularCrossover(Double crossoverProbability) {
         super(crossoverProbability);
     }
 

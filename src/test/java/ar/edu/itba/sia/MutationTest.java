@@ -25,13 +25,13 @@ public class MutationTest extends TestCase {
 
     public void testClassicMutation() {
         init();
-        Mutation mutation = new ClassicMutation(0);
+        Mutation mutation = new ClassicMutation(0.0);
         Warrior copy = x1.duplicate();
         mutation.mutate(copy);
         System.out.println(copy);
         assertTrue(copy.equals(x1));
 
-        mutation = new ClassicMutation(1);
+        mutation = new ClassicMutation(1.0);
         mutation.mutate(copy);
         System.out.println(copy);
         assertFalse(copy.equals(x1));
@@ -39,13 +39,13 @@ public class MutationTest extends TestCase {
 
     public void testNonUniformMutation() {
         init();
-        Mutation mutation = new NonUniformMutation(0);
+        Mutation mutation = new NonUniformMutation(0.0);
         Warrior copy = x1.duplicate();
         mutation.mutate(copy);
         System.out.println(copy);
         assertTrue(copy.equals(x1));
 
-        mutation = new NonUniformMutation(1);
+        mutation = new NonUniformMutation(1.0);
         mutation.mutate(copy);
         System.out.println(copy);
         assertFalse(copy.equals(x1));

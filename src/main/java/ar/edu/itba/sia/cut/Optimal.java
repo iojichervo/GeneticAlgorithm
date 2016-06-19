@@ -8,7 +8,7 @@ public class Optimal implements Cut {
 
     private double optimal;
 
-    public Optimal(double optimal) {
+    public Optimal(Double optimal) {
         this.optimal = optimal;
     }
 

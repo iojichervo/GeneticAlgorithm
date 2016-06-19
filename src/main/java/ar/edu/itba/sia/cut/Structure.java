@@ -9,7 +9,7 @@ public class Structure implements Cut {
     private double percentageNotChanging;
     private List<Warrior> lastGeneration;
 
-    public Structure(double percentageNotChanging) {
+    public Structure(Double percentageNotChanging) {
         this.percentageNotChanging = percentageNotChanging;
     }
 

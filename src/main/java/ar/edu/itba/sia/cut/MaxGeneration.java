@@ -8,7 +8,7 @@ public class MaxGeneration implements Cut {
 
     private int maxGeneration;
 
-    public MaxGeneration(int maxGeneration) {
+    public MaxGeneration(Integer maxGeneration) {
         this.maxGeneration = maxGeneration;
     }
 

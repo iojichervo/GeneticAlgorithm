@@ -12,7 +12,7 @@ public class Boltzmann implements Selection {
     private double denominator = 0;
     private double temperature;
 
-    public Boltzmann(double temperature) {
+    public Boltzmann(Double temperature) {
         this.temperature = temperature;
     }
 

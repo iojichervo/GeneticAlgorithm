@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class TwoPointsCrossover extends Crossover {
 
-    public TwoPointsCrossover(double crossoverProbability) {
+    public TwoPointsCrossover(Double crossoverProbability) {
         super(crossoverProbability);
     }
 

@@ -7,7 +7,7 @@ import java.util.List;
 public abstract class Crossover {
     double crossoverProbability;
 
-    public Crossover(double crossoverProbability) {
+    public Crossover(Double crossoverProbability) {
         this.crossoverProbability = crossoverProbability;
     }
 

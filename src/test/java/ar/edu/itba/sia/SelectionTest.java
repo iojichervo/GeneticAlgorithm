@@ -99,7 +99,7 @@ public class SelectionTest extends TestCase {
 
     public void testBoltzmann() {
         init();
-        Selection selection = new Boltzmann(50);
+        Selection selection = new Boltzmann(50.0);
         population = selection.select(2, population);
         System.out.println(population);
         assertTrue(population.size() == 2);
