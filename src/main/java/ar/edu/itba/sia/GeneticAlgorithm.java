@@ -1,9 +1,8 @@
 package ar.edu.itba.sia;
 
 import ar.edu.itba.sia.crossover.*;
-import ar.edu.itba.sia.generator.WarriorsGenerator;
+import ar.edu.itba.sia.util.WarriorsGenerator;
 import ar.edu.itba.sia.model.Warrior;
-import ar.edu.itba.sia.mutation.ClassicMutation;
 import ar.edu.itba.sia.mutation.Mutation;
 import ar.edu.itba.sia.mutation.NonUniformMutation;
 import ar.edu.itba.sia.selection.Elitism;

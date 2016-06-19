@@ -1,4 +1,4 @@
-package ar.edu.itba.sia.generator;
+package ar.edu.itba.sia.util;
 
 import ar.edu.itba.sia.model.Height;
 import ar.edu.itba.sia.model.Warrior;
