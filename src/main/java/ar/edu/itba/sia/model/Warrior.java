@@ -11,7 +11,7 @@ public class Warrior {
 
     // Fitness
     private static double TOTAL_FITNESS;
-    private double rankFitness;
+    private double relativeFitness;
 
     // Equipment
     private Height height;
@@ -139,16 +139,16 @@ public class Warrior {
     }
 
     public double relativeFitness() {
-        if (rankFitness != 0) return rankFitness;
+        if (relativeFitness != 0) return relativeFitness;
         return fitness() / TOTAL_FITNESS;
     }
 
-    public void setRankingFitness(double newFitness) {
-        rankFitness = newFitness;
+    public void setRelativeFitness(double newFitness) {
+        relativeFitness = newFitness;
     }
 
-    public void resetRankingFitness() {
-        rankFitness = 0;
+    public void resetRelativeFitness() {
+        relativeFitness = 0;
     }
 
     @Override

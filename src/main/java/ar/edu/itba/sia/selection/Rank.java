@@ -16,11 +16,11 @@ public class Rank implements Selection {
 
         i = 1;
         float populationSize = population.size();
-        population.stream().forEach(c -> c.setRankingFitness(i++ / populationSize)); // Assign new fitness
+        population.stream().forEach(c -> c.setRelativeFitness(i++ / populationSize)); // Assign new fitness
 
         Roulette roulette = new Roulette();
         List<Warrior> result = roulette.select(amount, population);
-        result.stream().forEach(c -> c.resetRankingFitness());
+        result.stream().forEach(c -> c.resetRelativeFitness());
         return result;
     }
 }

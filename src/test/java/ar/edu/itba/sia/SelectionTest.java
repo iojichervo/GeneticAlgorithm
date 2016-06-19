@@ -96,4 +96,12 @@ public class SelectionTest extends TestCase {
         System.out.println(population);
         assertTrue(population.size() == 2);
     }
+
+    public void testBoltzmann() {
+        init();
+        Selection selection = new Boltzmann(50);
+        population = selection.select(2, population);
+        System.out.println(population);
+        assertTrue(population.size() == 2);
+    }
 }
