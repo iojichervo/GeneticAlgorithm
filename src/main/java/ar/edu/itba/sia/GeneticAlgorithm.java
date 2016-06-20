@@ -13,14 +13,17 @@ import ar.edu.itba.sia.util.WarriorsUtils;
 
 import java.util.List;
 
+
 public class GeneticAlgorithm {
 
     public static void run(AlgorithmProperties p) {
         // Initial Population
         List<Warrior> warriors = WarriorsUtils.generateWarriors(p.getN());
 
+        System.out.println("Initial Population");
+        System.out.println("------------------");
         for (Warrior warrior : warriors) {
-            System.out.println(warrior.fitness() + " - " + warrior);
+            System.out.println(String.format("%.3f", warrior.fitness()) + " - " + warrior);
         }
         System.out.println();
 
@@ -43,13 +46,20 @@ public class GeneticAlgorithm {
             plot.addWorst(generation, WarriorsUtils.worstFitness(warriors));
 
             Warrior bestWarrior = WarriorsUtils.getBestWarrior();
-            System.out.println("Best Warrior: " + bestWarrior.fitness() + " - " + bestWarrior);
+            System.out.println("Gen: " + generation + " - Best Warrior: "
+                    + String.format("%.3f", bestWarrior.fitness()) + " - " + bestWarrior);
 
             generation++;
         }
 
+        Warrior bestWarrior = WarriorsUtils.getBestWarrior();
+        plot.setText("Best Warrior: " + String.format("%.3f", bestWarrior.fitness()), bestWarrior.toString());
+
+        System.out.println();
+        System.out.println("Final Population");
+        System.out.println("------------------");
         for (Warrior warrior : warriors) {
-            System.out.println(warrior.fitness() + " - " + warrior);
+            System.out.println(String.format("%.3f", warrior.fitness()) + " - " + warrior);
         }
         System.out.println();
 

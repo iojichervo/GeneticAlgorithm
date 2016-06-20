@@ -14,6 +14,6 @@ public class MaxGeneration implements Cut {
 
     @Override
     public boolean cut(int generationNumber, List<Warrior> population) {
-        return maxGeneration == generationNumber;
+        return maxGeneration < generationNumber;
     }
 }

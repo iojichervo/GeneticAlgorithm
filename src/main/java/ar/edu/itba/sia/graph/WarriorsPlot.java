@@ -1,13 +1,11 @@
 package ar.edu.itba.sia.graph;
 
 import de.erichseifert.gral.data.DataTable;
-import de.erichseifert.gral.graphics.Location;
-import de.erichseifert.gral.plots.Plot;
 import de.erichseifert.gral.plots.XYPlot;
-import de.erichseifert.gral.plots.axes.AxisRenderer;
 import de.erichseifert.gral.ui.InteractivePanel;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class WarriorsPlot extends JFrame {
@@ -15,10 +13,11 @@ public class WarriorsPlot extends JFrame {
     private DataTable avg;
     private DataTable best;
     private DataTable worst;
+    private JLabel label;
 
     public WarriorsPlot() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(800, 600);
+        setSize(1200, 900);
         setVisible(true);
 
         avg = new LabelDataTable(Double.class, Double.class, "Average");
@@ -35,8 +34,17 @@ public class WarriorsPlot extends JFrame {
         plot.getAxisRenderer(XYPlot.AXIS_Y).getLabel().setText("Fitness");
         plot.getAxisRenderer(XYPlot.AXIS_X).setIntersection(5);
 
+        JPanel panel = new JPanel();
+        label = new JLabel();
+        label.setFont(new Font("Verdana", 1, 20));
+        panel.add(label);
+        panel.setBorder(new LineBorder(Color.BLACK));
+        panel.setBackground(new Color(1.0f, 1.0f, 1.0f, 1.0f));
 
-        getContentPane().add(new InteractivePanel(plot));
+        InteractivePanel iPanel = new InteractivePanel(plot);
+        iPanel.setLayout(new BorderLayout());
+        iPanel.add(panel, BorderLayout.SOUTH);
+        add(iPanel);
     }
 
     public void addAvg(double x, double y) {
@@ -49,5 +57,9 @@ public class WarriorsPlot extends JFrame {
 
     public void addWorst(double x, double y) {
         worst.add(x, y);
+    }
+
+    public void setText(String first, String second) {
+        label.setText("<html><center>" + first + "<br>" + second + "</center></html>");
     }
 }

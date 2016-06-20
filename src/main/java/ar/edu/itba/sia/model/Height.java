@@ -27,7 +27,7 @@ public class Height {
 
     @Override
     public String toString() {
-        return String.valueOf(height);
+        return String.format("%.3f", height);
     }
 
     @Override

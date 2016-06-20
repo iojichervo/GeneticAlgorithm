@@ -157,14 +157,14 @@ public class Warrior {
 
     @Override
     public String toString() {
-        return "Warrior{" +
+        return "(" +
                 "height=" + height +
                 ", weapon=" + weapon.getId() +
                 ", boots=" + boots.getId() +
                 ", helmet=" + helmet.getId() +
                 ", gloves=" + gloves.getId() +
                 ", cuirass=" + cuirass.getId() +
-                '}';
+                ')';
     }
 
     @Override
