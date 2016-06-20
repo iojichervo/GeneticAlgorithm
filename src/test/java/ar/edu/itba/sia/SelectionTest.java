@@ -3,7 +3,7 @@ package ar.edu.itba.sia;
 import ar.edu.itba.sia.model.Height;
 import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.selection.*;
-import ar.edu.itba.sia.util.FitnessCalculator;
+import ar.edu.itba.sia.util.WarriorsUtils;
 import ar.edu.itba.sia.util.ItemsManager;
 import ar.edu.itba.sia.util.ItemsParser;
 import junit.framework.TestCase;
@@ -39,7 +39,7 @@ public class SelectionTest extends TestCase {
             population.add(x3);
             population.add(x4);
             population.add(x5);
-            FitnessCalculator.calculateTotalFitness(population);
+            WarriorsUtils.calculateTotalFitness(population);
         } catch (Exception e) {
             e.printStackTrace();
         }

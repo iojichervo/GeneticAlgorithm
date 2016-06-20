@@ -134,6 +134,10 @@ public class Warrior {
         this.cuirass = cuirass;
     }
 
+    public static double getTotalFitness() {
+        return TOTAL_FITNESS;
+    }
+
     public static void setTotalFitness(double fit) {
         TOTAL_FITNESS = fit;
     }

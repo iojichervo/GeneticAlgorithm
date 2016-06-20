@@ -14,8 +14,8 @@ public class ProbabilisticTournament implements Selection {
             RandomSelection randomSelection = new RandomSelection();
             List<Warrior> tournament = randomSelection.select(2, population);
 
-            Warrior highFitness = tournament.stream().max((a, b) -> Double.compare(b.fitness(), a.fitness())).get();
-            Warrior lowFitness = tournament.stream().min((a, b) -> Double.compare(b.fitness(), a.fitness())).get();
+            Warrior highFitness = tournament.stream().max((a, b) -> Double.compare(a.fitness(), b.fitness())).get();
+            Warrior lowFitness = tournament.stream().min((a, b) -> Double.compare(a.fitness(), b.fitness())).get();
 
             Warrior champion = Math.random() < 0.75 ? highFitness : lowFitness;
             selected.add(champion);
