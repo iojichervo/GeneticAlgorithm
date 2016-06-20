@@ -83,7 +83,7 @@ public class Warrior {
     }
 
     public Warrior duplicate() {
-        return new Warrior(height, weapon, boots, helmet, gloves, cuirass);
+        return new Warrior(height.duplicate(), weapon, boots, helmet, gloves, cuirass);
     }
 
     public Height getHeight() {

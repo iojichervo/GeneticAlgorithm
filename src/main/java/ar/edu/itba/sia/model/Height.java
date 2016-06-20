@@ -21,6 +21,10 @@ public class Height {
         height = ThreadLocalRandom.current().nextDouble(1.3, 2);
     }
 
+    public Height duplicate() {
+        return new Height(height);
+    }
+
     @Override
     public String toString() {
         return String.valueOf(height);

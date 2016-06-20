@@ -9,6 +9,7 @@ import java.util.List;
 public class WarriorsUtils {
 
     private static double fitness;
+    private static Warrior bestWarrior;
 
     public static void calculateTotalFitness(List<Warrior> warriors) {
         fitness = 0;
@@ -34,7 +35,15 @@ public class WarriorsUtils {
     }
 
     public static double bestFitness(List<Warrior> warriors) {
-        return warriors.stream().max((a, b) -> Double.compare(a.fitness(), b.fitness())).get().fitness();
+        Warrior localBestWarrior = warriors.stream().max((a, b) -> Double.compare(a.fitness(), b.fitness())).get();
+        if (bestWarrior == null || localBestWarrior.fitness() > bestWarrior.fitness()) {
+            bestWarrior = localBestWarrior.duplicate();
+        }
+        return localBestWarrior.fitness();
+    }
+
+    public static Warrior getBestWarrior() {
+        return bestWarrior;
     }
 
     public static double worstFitness(List<Warrior> warriors) {

@@ -2,7 +2,7 @@ package ar.edu.itba.sia;
 
 import ar.edu.itba.sia.crossover.Crossover;
 import ar.edu.itba.sia.cut.Cut;
-import ar.edu.itba.sia.graph.PointsPlot;
+import ar.edu.itba.sia.graph.WarriorsPlot;
 import ar.edu.itba.sia.model.Warrior;
 import ar.edu.itba.sia.mutation.Mutation;
 import ar.edu.itba.sia.replacement.Replacement;
@@ -31,7 +31,7 @@ public class GeneticAlgorithm {
         Replacement replacement = p.getReplacement();
         Cut cut = p.getCut();
 
-        PointsPlot plot = new PointsPlot();
+        WarriorsPlot plot = new WarriorsPlot();
         int generation = 1;
         while (!cut.cut(generation, warriors)) {
             WarriorsUtils.calculateTotalFitness(warriors);
@@ -41,6 +41,9 @@ public class GeneticAlgorithm {
             plot.addAvg(generation, WarriorsUtils.averageFitness(warriors));
             plot.addBest(generation, WarriorsUtils.bestFitness(warriors));
             plot.addWorst(generation, WarriorsUtils.worstFitness(warriors));
+
+            Warrior bestWarrior = WarriorsUtils.getBestWarrior();
+            System.out.println("Best Warrior: " + bestWarrior.fitness() + " - " + bestWarrior);
 
             generation++;
         }
