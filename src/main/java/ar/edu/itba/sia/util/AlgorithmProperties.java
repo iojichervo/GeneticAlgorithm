@@ -29,7 +29,7 @@ public class AlgorithmProperties {
     private Selection replacement1;
     private Selection replacement2;
     private Replacement replacement;
-    private int cutparam;
+    private double cutparam;
     private Cut cut;
     private double boltzmanntemp;
 
@@ -62,7 +62,7 @@ public class AlgorithmProperties {
                     + prop.getProperty("replacement2")));
             replacement = (Replacement) Class.forName("ar.edu.itba.sia.replacement."
                     + prop.getProperty("replacement")).newInstance();
-            cutparam = Integer.valueOf(prop.getProperty("cutparam"));
+            cutparam = Double.valueOf(prop.getProperty("cutparam"));
             cut = instantiateCut(Class.forName("ar.edu.itba.sia.cut." + prop.getProperty("cut")));
 
         } catch (Exception ex) {
@@ -86,7 +86,7 @@ public class AlgorithmProperties {
     }
 
     private Cut instantiateCut(Class cutClass) throws Exception {
-        if (cutClass.equals(MaxGeneration.class)) return new MaxGeneration(cutparam);
+        if (cutClass.equals(MaxGeneration.class)) return new MaxGeneration((int) cutparam);
         if (cutClass.equals(Restrained.class)) return new Restrained();
         return (Cut) cutClass.getDeclaredConstructor(Double.class).newInstance(cutparam);
     }

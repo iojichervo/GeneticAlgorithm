@@ -28,7 +28,7 @@ public class Structure implements Cut {
         double presents = 0;
         for (Warrior w : population) {
             if (lastGeneration.contains(w)) presents++;
-            if (Double.compare(presents / n, percentageNotChanging) == 0) return true;
+            if (Double.compare(presents / n, percentageNotChanging) >= 0) return true;
         }
         lastGeneration = population;
         return false;
