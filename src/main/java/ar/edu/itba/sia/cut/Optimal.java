@@ -14,8 +14,9 @@ public class Optimal implements Cut {
 
     @Override
     public boolean cut(int generationNumber, List<Warrior> population) {
-        Warrior w = population.stream().max((a, b) -> Double.compare(b.fitness(), a.fitness())).get();
+        Warrior w = population.stream().max((a, b) -> Double.compare(a.fitness(), b.fitness())).get();
         double bestFitness = w.fitness();
+        System.out.println(bestFitness + " - " + optimal);
         return bestFitness >= optimal;
     }
 }
