@@ -63,6 +63,7 @@ public class GeneticAlgorithm {
         }
         System.out.println();
 
+        System.out.println("Generations Reached: " + (generation-1));
     }
 
 }

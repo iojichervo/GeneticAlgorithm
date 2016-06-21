@@ -87,7 +87,7 @@ public class AlgorithmProperties {
 
     private Cut instantiateCut(Class cutClass) throws Exception {
         if (cutClass.equals(MaxGeneration.class)) return new MaxGeneration((int) cutparam);
-        if (cutClass.equals(Restrained.class)) return new Restrained();
+        if (cutClass.equals(Restrained.class)) return new Restrained((int) cutparam);
         return (Cut) cutClass.getDeclaredConstructor(Double.class).newInstance(cutparam);
     }
 
