@@ -2,6 +2,7 @@ package ar.edu.itba.sia.cut;
 
 import ar.edu.itba.sia.model.Warrior;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Structure implements Cut {
@@ -20,7 +21,7 @@ public class Structure implements Cut {
     @Override
     public boolean cut(int generationNumber, List<Warrior> population) {
         if (lastGeneration == null) {
-            lastGeneration = population;
+            lastGeneration = duplicateList(population);
             return false;
         }
 
@@ -30,7 +31,13 @@ public class Structure implements Cut {
             if (lastGeneration.contains(w)) presents++;
             if (Double.compare(presents / n, percentageNotChanging) >= 0) return true;
         }
-        lastGeneration = population;
+        lastGeneration = duplicateList(population);
         return false;
+    }
+
+    private List<Warrior> duplicateList(List<Warrior> warriors) {
+        List<Warrior> dup = new LinkedList<>();
+        warriors.stream().forEach(w -> dup.add(w.duplicate()));
+        return dup;
     }
 }
