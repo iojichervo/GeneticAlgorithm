@@ -15,7 +15,7 @@ public class Rank implements Selection {
         Collections.sort(population, (a, b) -> Double.compare(a.fitness(), b.fitness())); // Order by fitness, worst to best
 
         i = 1;
-        float populationSize = population.size();
+        double populationSize = population.size() * (population.size() + 1) / 2;
         population.stream().forEach(c -> c.setRelativeFitness(i++ / populationSize)); // Assign new fitness
 
         Roulette roulette = new Roulette();

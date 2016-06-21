@@ -2,9 +2,9 @@ package ar.edu.itba.sia;
 
 import ar.edu.itba.sia.model.Height;
 import ar.edu.itba.sia.model.Warrior;
-import ar.edu.itba.sia.mutation.ClassicMutation;
-import ar.edu.itba.sia.mutation.Mutation;
 import ar.edu.itba.sia.mutation.NonUniformMutation;
+import ar.edu.itba.sia.mutation.Mutation;
+import ar.edu.itba.sia.mutation.ClassicMutation;
 import ar.edu.itba.sia.util.ItemsManager;
 import ar.edu.itba.sia.util.ItemsParser;
 import junit.framework.TestCase;
@@ -25,20 +25,6 @@ public class MutationTest extends TestCase {
 
     public void testClassicMutation() {
         init();
-        Mutation mutation = new ClassicMutation(0.0);
-        Warrior copy = x1.duplicate();
-        mutation.mutate(copy);
-        System.out.println(copy);
-        assertTrue(copy.equals(x1));
-
-        mutation = new ClassicMutation(1.0);
-        mutation.mutate(copy);
-        System.out.println(copy);
-        assertFalse(copy.equals(x1));
-    }
-
-    public void testNonUniformMutation() {
-        init();
         Mutation mutation = new NonUniformMutation(0.0);
         Warrior copy = x1.duplicate();
         mutation.mutate(copy);
@@ -46,6 +32,20 @@ public class MutationTest extends TestCase {
         assertTrue(copy.equals(x1));
 
         mutation = new NonUniformMutation(1.0);
+        mutation.mutate(copy);
+        System.out.println(copy);
+        assertFalse(copy.equals(x1));
+    }
+
+    public void testNonUniformMutation() {
+        init();
+        Mutation mutation = new ClassicMutation(0.0);
+        Warrior copy = x1.duplicate();
+        mutation.mutate(copy);
+        System.out.println(copy);
+        assertTrue(copy.equals(x1));
+
+        mutation = new ClassicMutation(1.0);
         mutation.mutate(copy);
         System.out.println(copy);
         assertFalse(copy.equals(x1));
