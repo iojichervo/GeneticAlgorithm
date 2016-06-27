@@ -17,13 +17,13 @@ public class Restrained implements Cut {
     @Override
     public boolean cut(int generationNumber, List<Warrior> population) {
         if (bestFitnessLastGeneration == 0) {
-            Warrior w = population.stream().max((a, b) -> Double.compare(b.fitness(), a.fitness())).get();
+            Warrior w = population.stream().max((a, b) -> Double.compare(a.fitness(), b.fitness())).get();
             bestFitnessLastGeneration = w.fitness();
             generationsWithBestFitness = 0;
             return false;
         }
 
-        Warrior w = population.stream().max((a, b) -> Double.compare(b.fitness(), a.fitness())).get();
+        Warrior w = population.stream().max((a, b) -> Double.compare(a.fitness(), b.fitness())).get();
         double bestFitness = w.fitness();
         if (Double.compare(bestFitness, bestFitnessLastGeneration) == 0) {
             if (++generationsWithBestFitness == generationsWithBestFitnessGoal) return true;

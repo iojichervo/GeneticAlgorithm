@@ -17,7 +17,7 @@ public class DeterministicTournament implements Selection {
             int m = iterator.nextInt();
             RandomSelection randomSelection = new RandomSelection();
             List<Warrior> tournament = randomSelection.select(m, population);
-            Warrior champion = tournament.stream().max((a, b) -> Double.compare(b.fitness(), a.fitness())).get();
+            Warrior champion = tournament.stream().max((a, b) -> Double.compare(a.fitness(), b.fitness())).get();
             selected.add(champion);
         }
         return selected;
